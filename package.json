@@ -1,0 +1,28 @@
+{
+  "name": "services_web",
+  "version": "1.0.0",
+  "description": "service web pour gerer les requetes HTTP de base pour l'application de reseau social comme la creation de compte, les salles de club et ainsi de suite ..",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app/app.js",
+    "dev": "nodemon app/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^3.14.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.16",
+    "prisma": "^3.14.0"
+  },
+  
+  "prisma": {
+    "schema": "app/models/prisma/schema.prisma"
+  }
+}

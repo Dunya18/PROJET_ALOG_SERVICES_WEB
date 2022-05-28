@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id_user Int @id @default(autoincrement())
+  name String? @db.VarChar 
+  family_name String? @db.VarChar 
+  email String? @db.VarChar @unique
+  phone_number String? @db.VarChar @unique
+  password String? @db.VarChar 
+  suspended Boolean? @default(false)
+  Invitation Invitation[]
+}
+model Admin {
+  id_admin Int @id @default(autoincrement())
+  name String? @db.VarChar 
+  family_name String? @db.VarChar 
+  email String? @db.VarChar @unique
+  phone_number String? @db.VarChar @unique
+  password String? @db.VarChar 
+}
+model Invitation{
+  id Int @id @default(autoincrement())
+  id_user Int?
+  code String? @db.VarChar @unique
+  expired Boolean? @default(false)
+  User User? @relation(fields: [id_user], references: [id_user], onDelete: Cascade, onUpdate: NoAction)
+
+}

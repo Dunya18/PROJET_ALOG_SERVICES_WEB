@@ -4,10 +4,13 @@
   "description": "service web pour gerer les requetes HTTP de base pour l'application de reseau social comme la creation de compte, les salles de club et ainsi de suite ..",
   "main": "index.js",
   "scripts": {
-    "start": "node app/app.js",
-    "dev": "nodemon app/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
+    },
   "author": "",
   "license": "ISC",
   "dependencies": {
